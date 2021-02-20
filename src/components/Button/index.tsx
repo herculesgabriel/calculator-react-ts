@@ -1,11 +1,16 @@
 interface Props {
-  number: number;
-  handleNumberClick: Function;
+  handleClick: any;
+  className?: string;
 }
 
-const NumberButton: React.FC<Props> = ({ number, handleNumberClick }) => (
-  <button type="button">
-    {number}
+const NumberButton: React.FC<Props> = ({ handleClick, children, className = "" }) => (
+  <button
+    type="button"
+    className={className}
+    onClick={handleClick}
+    value={children as string}
+  >
+    {children}
   </button>
 );
 
